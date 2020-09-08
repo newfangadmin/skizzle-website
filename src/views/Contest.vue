@@ -242,10 +242,14 @@ export default {
   methods: {
     async signin() {
       const googleUser = await this.$gAuth.signIn();
+      const authCode = await this.$gAuth.getAuthCode()
       const id = googleUser.getId();
       const profile = googleUser.getBasicProfile();
       const res = googleUser.getAuthResponse();
-      console.log(id, profile, res);
+      console.log('authCode:', authCode);
+      console.log('id:', id);
+      console.log('profile:', profile);
+      console.log('authRes:', res);
       this.isSignIn = this.$gAuth.isAuthorized
       if (this.isSignIn) {
         this.$router.push({ path: "/contestHome" });
