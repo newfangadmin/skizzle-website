@@ -207,6 +207,7 @@ export default {
       const res = googleUser.getAuthResponse();
       console.log(id, profile, res);
       this.isSignIn = this.$gAuth.isAuthorized
+      console.log('auth?', this.$gAuth.isAuthorized)
     }
   },
 
