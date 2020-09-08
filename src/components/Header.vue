@@ -4,7 +4,7 @@
         <div class="contestHeading" v-if="view==='contest'">
           Skizzle Contest
         </div>
-        <div class="contestHeading" v-if="view==='contestHome'">
+        <div class="contestHeading" v-else-if="view==='contestHome'">
           <a class="logoutBtn" href="#" @click="signout">
             <img class="logoutIcon" src="../assets/logout.svg" height="40" />
           </a>
