@@ -1,4 +1,6 @@
 <template>
+  <div>
+  <Header />
   <div class="home">
     <el-row class="hero">
       <el-col :xs="{span:24}" :sm="{span:18, offset:3}" class="headerTextContainer">
@@ -15,7 +17,7 @@
         </el-row>
       </el-col>
     </el-row>
-    <el-row class="section democratize">
+    <el-row class="section democratize" id="mission">
       <el-col :span="20" :offset="2" class="sectionHeader">
         We are on a mission to democratize the security and privacy of your data.
       </el-col>
@@ -47,7 +49,7 @@
         </el-row>
       </el-col>
     </el-row>
-    <el-row class="section simple">
+    <el-row class="section simple" id="demo">
       <el-col :span="20" :offset="2" class="sectionHeader">
         Skizzle is deadly easy to use. Just do the things you already do.
       </el-col>
@@ -69,8 +71,8 @@
       <el-col :span="20" :offset="2" class="featuresContainer">
         <el-carousel trigger="click" type="card" :autoplay="false">
           <el-carousel-item>
-            <i class="el-icon-magic-stick featuresIcon hidden-sm-and-down" />
-            <h3 class="medium">Encryption</h3>
+            <img class="featuresIcon hidden-sm-and-down" src="../assets/encryption.svg" />
+            <h3 class="medium">Local Encryption</h3>
             <ul class="featurePoints">
               <li>AES encryption of files before upload.</li>
               <li>Local storage of encryption keys.</li>
@@ -78,16 +80,31 @@
             </ul>
           </el-carousel-item>
           <el-carousel-item>
-            <i class="el-icon-magic-stick featuresIcon hidden-sm-and-down" />
-            <h3 class="medium">Key Management</h3>
+            <img class="featuresIcon hidden-sm-and-down" src="../assets/storage.svg" />
+            <h3 class="medium">Secure Storage</h3>
+            <ul class="featurePoints">
+              <li>Only encrypted files are stored on Skizzle servers.</li>
+              <li>Each Skizzle server stores a piece of an encrypted file.</li>
+              <li>Servers have zero knowledge of what they store.</li>
+            </ul>
           </el-carousel-item>
           <el-carousel-item>
-            <i class="el-icon-magic-stick featuresIcon hidden-sm-and-down" />
-            <h3 class="medium">Authentication</h3>
+            <img class="featuresIcon hidden-sm-and-down" src="../assets/access.svg" />
+            <h3 class="medium">Private Access</h3>
+            <ul class="featurePoints">
+              <li>Only file owner/sender can decide who gets to access a file.</li>
+              <li>User authenticated on blockchain before being able to download encrypted file.</li>
+              <li>Key to decrypt the file only available to authorised recipients.</li>
+            </ul>
           </el-carousel-item>
           <el-carousel-item>
-            <i class="el-icon-magic-stick featuresIcon hidden-sm-and-down" />
-            <h3 class="medium">Access Control</h3>
+            <img class="featuresIcon hidden-sm-and-down" src="../assets/verify.svg" />
+            <h3 class="medium">Public Verifiability</h3>
+            <ul class="featurePoints">
+              <li>Check who has access to any of your files on a public blockchain.</li>
+              <li>Verify your account usage.</li>
+              <li>Only pseudonymous identifiers used to preserve privacy.</li>
+            </ul>
           </el-carousel-item>
         </el-carousel>
       </el-col>
@@ -130,16 +147,16 @@
       </el-col>
     </el-row>
 
-    <el-row class="section pricing">
+    <el-row class="section pricing" id="pricing">
       <el-col :span="20" :offset="2" class="sectionHeader">
-        Big or small, businesses and institutions of all sizes deserve to be able to protect their data.
+        Big or small, individuals, businesses and institutions of all sizes deserve to be able to protect their data.
       </el-col>
       <el-col :span="16" :offset="4" class="sectionSub">
         With Skizzle, you don't pay less and get lowered security. All our plans come with the same state-of-the-art encryption schemes and privacy control.
       </el-col>
       <el-col :span="24" class="featuresContainer">
         <el-row>
-          <el-col :xs="{span:20, offset:2}" :sm="{span:8, offset:0}" :md="{span:8, offset:0}" class="feature">
+          <el-col :xs="{span:20, offset:2}" :sm="{span:20, offset:2}" :md="{span:12, offset:6}" :lg="{span:8, offset:0}" class="feature">
             <el-card shadow="always">
               <div class="planPrice">$0</div>
               <div class="planName">FREE</div>
@@ -152,7 +169,7 @@
               <el-button icon="el-icon-download">Get Skizzle</el-button>
             </el-card>
           </el-col>
-          <el-col :xs="{span:20, offset:2}"  :sm="{span:8, offset:0}" :md="{span:8, offset:0}" class="feature">
+          <el-col :xs="{span:20, offset:2}"  :sm="{span:20, offset:2}" :md="{span:12, offset:6}" :lg="{span:8, offset:0}" class="feature">
             <el-card shadow="always">
               <div class="planPrice">$xxx</div>
               <div class="planName">PRO</div>
@@ -162,10 +179,10 @@
                 <li class="planFeature"><i class="el-icon-finished planFeatureIcon" />xxxMB max file size</li>
                 <li class="planFeature"><i class="el-icon-finished planFeatureIcon" />...and so much more</li>
               </ul>
-              <el-button>Coming Soon</el-button>
+              <el-button class="secondaryBtn" disabled>Coming Soon</el-button>
             </el-card>
           </el-col>
-          <el-col :xs="{span:20, offset:2}" :sm="{span:8, offset:0}" :md="{span:8, offset:0}" class="feature">
+          <el-col :xs="{span:20, offset:2}" :sm="{span:20, offset:2}" :md="{span:12, offset:6}" :lg="{span:8, offset:0}" class="feature">
             <el-card shadow="always">
               <div class="planPrice">$xxx</div>
               <div class="planName">TEAM</div>
@@ -175,14 +192,14 @@
                 <li class="planFeature"><i class="el-icon-finished planFeatureIcon" />xxxMB max file size</li>
                 <li class="planFeature"><i class="el-icon-finished planFeatureIcon" />...and so much more</li>
               </ul>
-              <el-button>Coming Soon</el-button>
+              <el-button class="secondaryBtn" disabled>Coming Soon</el-button>
             </el-card>
           </el-col>
         </el-row>
       </el-col>
     </el-row>
 
-    <el-row class="section contact">
+    <el-row class="section contact" id="contact">
       <el-col :span="20" :offset="2" class="sectionHeader">
         Stay up to date with what we are upto
       </el-col>
@@ -195,7 +212,7 @@
             <div class="signupError">Invalid email id. Please try again.</div>
             <div class="signupSuccess">Signup successful!</div>
             <el-input placeholder="Enter email address" v-model="email" clearable class="signupEmail"></el-input>
-            <el-button class="signupBtn" icon="el-icon-download">Sign up</el-button>
+            <el-button class="signupBtn" icon="el-icon-user">Sign up</el-button>
           </el-col>
         </el-row>
       </el-col>
@@ -204,13 +221,17 @@
     <el-row class="footer">
     </el-row>
   </div>
+  </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'Home',
-  components: {},
+  components: {
+    Header
+  },
   data() {
     return {
       email: ""
@@ -280,8 +301,9 @@ export default {
 }
 
 .featureIcon {
-  font-size: 60px;
+  height: 60px;
   padding: 24px;
+  font-size: 60px;
 }
 
 .featureHeading {
@@ -312,7 +334,7 @@ export default {
   text-align: left;
   padding-left: 20px;
   padding-right: 6px;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .whitepaperContainer {
@@ -458,8 +480,8 @@ export default {
 
   .featuresIcon {
     color: white;
-    font-size: 60px;
-    padding-top: 30px;
+    height: 36px;
+    padding-top: 18px;
   }
 }
 
@@ -475,8 +497,8 @@ export default {
   }
 
   .featuresIcon {
-    font-size: 72px;
-    padding-top: 40px;
+    height: 54px;
+    padding-top: 28px;
   }
 
   .featurePoints {

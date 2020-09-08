@@ -1,15 +1,18 @@
 <template>
   <el-row class="header">
       <el-col :md="{span:9, offset:1}" class="hidden-sm-and-down menuContainer">
-        <el-menu class="el-menu-demo" mode="horizontal">
-          <el-menu-item index="1">Mission</el-menu-item>
-          <el-menu-item index="1">Demo</el-menu-item>
-          <el-menu-item index="1">Pricing</el-menu-item>
-          <el-menu-item index="1">Contact</el-menu-item>
-          <el-tooltip class="item" effect="dark" content="Explore live transactions on Skizzle's public blockchain explorer" placement="bottom">
-            <el-menu-item index="2" class="hidden-md-and-down"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></el-menu-item>
+        <el-menu class="el-menu-demo" mode="horizontal" v-if="view!=='contest'">
+          <el-menu-item index="1"><a href="#" v-scroll-to="'#mission'" class="menuLink">Mission</a></el-menu-item>
+          <el-menu-item index="2"><a href="#" v-scroll-to="'#demo'" class="menuLink">Demo</a></el-menu-item>
+          <el-menu-item index="3"><a href="#" v-scroll-to="'#pricing'" class="menuLink">Pricing</a></el-menu-item>
+          <el-menu-item index="4"><a href="#" v-scroll-to="'#contact'" class="menuLink">Contact</a></el-menu-item>
+          <el-tooltip class="item" effect="dark" content="Explore live transactions on Skizzle's public blockchain explorer ↗" placement="bottom">
+            <el-menu-item index="5" class="hidden-md-and-down"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></el-menu-item>
           </el-tooltip>
         </el-menu>
+        <div class="contestHeading" v-else>
+          Skizzle Contest<span class="associationText"> (in association with Matic Network)</span>
+        </div>
       </el-col>
       <el-col :xs="{span:2, offset:1}" :sm="{span:2, offset:1}" class="hidden-md-and-up menuBtnContainer">
         <i class="el-icon-menu"></i>
@@ -31,7 +34,7 @@ import 'element-ui/lib/theme-chalk/display.css';
 
 export default {
   name: 'Header',
-  props: {}
+  props: ["view"]
 }
 </script>
 
@@ -56,6 +59,19 @@ export default {
   padding-top: 12px;
 }
 
+.contestHeading {
+  line-height: 80px;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.associationText {
+  font-size: 9px;
+  font-weight: 300;
+  text-transform: none;
+}
+
 .el-menu.el-menu--horizontal {
   border: none !important;
   height: 78px;
@@ -77,6 +93,14 @@ export default {
 
 .el-menu-item:hover {
   color: #ff5b00 !important;
+}
+
+.el-menu--horizontal > .el-menu-item.is-active {
+  border-bottom: none !important;
+}
+
+.menuLink {
+  text-decoration: none;
 }
 
 .downloadBtnContainer {

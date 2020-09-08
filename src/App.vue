@@ -1,26 +1,26 @@
 <template>
   <div id="app">
-    <Header />
     <router-view></router-view>
     <Footer />
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'app',
   components: {
-    Header,
     Footer
+  },
+
+  mounted() {
   }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Fira+Code:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code:300,500,700&display=swap');
 @font-face { font-family: "GilroyB"; src: url('./assets/GilroyBold.ttf'); }
 @font-face { font-family: "GilroyEB"; src: url('./assets/GilroyExtraBold.otf'); }
 
@@ -56,12 +56,23 @@ h3 {
   border: 1px solid black !important;
   font-family: "GilroyB";
   text-transform: uppercase;
-  color: black !important;
+  color: white !important;
+  background-color: black !important;
 }
 
 .el-button:hover {
-  background: black !important;
-  color: white !important;
+  background: white !important;
+  color: black !important;
+}
+
+.secondaryBtn {
+  border: 1px solid #aaaaaa !important;
+  color: #aaaaaa !important;
+  background-color: white !important;
+}
+
+.secondaryBtn:hover {
+  color: #aaaaaa !important;
 }
 
 [class^="el-icon-"] {
@@ -69,7 +80,7 @@ h3 {
 }
 
 .el-carousel__container {
-  height: 200px !important;
+  height: 240px !important;
 }
 
 .el-carousel__item {
