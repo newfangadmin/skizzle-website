@@ -1,33 +1,10 @@
-// const express = require('express');
-// const app = express();
+const express = require('express');
+const app = express();
 
-// // Serve all the files in '/dist' directory
-// app.use(express.static('dist'));
-
-
-// app.listen(process.env.PORT, function () {
-//   console.log('Example app listening on port 3000!');
-// });
-var express = require('express')
-var history = require('connect-history-api-fallback')
-var path = require('path')
-var serveStatic = require('serve-static')
+// Serve all the files in '/dist' directory
+app.use(express.static('dist'));
 
 
-var app = express()
-
-// Use a fallback for non-root routes (required for Vue router)
-//   NOTE: History fallback must be "used" before the static serving middleware!
-app.use(history({
-    // OPTIONAL: Includes more verbose logging
-    verbose: true
-}))
-
-// Serve static assets from the build files (images, etc)
-app.use(serveStatic(path.join(__dirname, '/dist')))
-
-var port = process.env.PORT
-
-app.listen(port, () => {
-  console.log('Server started at http://localhost:5000')
-})
+app.listen(process.env.PORT, function () {
+  console.log('Example app listening on port 3000!');
+});
