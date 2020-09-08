@@ -30,7 +30,7 @@
         </countdown>
       </el-row>
       <el-row class="signupContainer">
-        <el-col :span="22" :offset="1" class="signupHeading">Signup with your Gmail to continue</el-col>
+        <el-col :span="22" :offset="1" class="signupHeading">Register to the contest with your GMail</el-col>
         <el-col :xs="{span:14, offset:5}" :sm="{span:8, offset:8}" :md="{span:6, offset:9}" :lg="{span:4, offset:10}" class="signup">
           <div class="google-btn" @click="signin">
             <div class="google-icon-wrapper">
@@ -46,6 +46,21 @@
           By signing up you accept the contest's <a href="/contestTerms" target="_blank">Terms & Conditions</a>
         </el-col>
       </el-row>
+      <el-row class="howContainer">
+        <el-col :span="22" :offset="1" class="signupHeading">How it works</el-col>
+        <el-col :xs="{span:24}" :md="{span:20, offset:2}" :lg="{span:16, offset:4}" class="howListContainer">
+          <ul class="howList">
+            <li class="howItem">Follow us on twitter <a href="https://twitter.com/skizzledotemail" target="_blank">@skizzledotemail</a>.</li>
+            <li class="howItem">Like/Retweet our pinned post <a href="https://twitter.com/skizzledotemail" target="_blank">here</a>.</li>
+            <li class="howItem">Signup with your Gmail account.</li>
+            <li class="howItem">You will then receive an email from hello@skizzle.email with an encrypted attachment.</li>
+            <li class="howItem">Install the Skizzle chrome extension and use it to decrypt the attachment.</li>
+            <li class="howItem">The attachment is actually a keystore file to a random wallet.</li>
+            <li class="howItem">Use the keystore file to access the wallet and check if you it has any USDT(erc20).</li>
+            <li class="howItem">If you find any USDT(erc20), VOILA!, you have won. Immediately transfer the tokens to any of your other wallets.</li>
+          </ul>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -57,7 +72,12 @@
   padding-top: 24%;
 }
 
-.countdownHeading, .signupHeading {
+.countdownHeading {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.signupHeading {
   text-align: center;
   font-family: "GilroyEB";
   font-size: 28px;
@@ -90,9 +110,7 @@
 }
 
 .signupContainer {
-  margin-top: 6%;
-  padding-top: 6%;
-  border-top: 1px dashed #dddddd;
+  margin-top: 30px;
 }
 
 .google-btn {
@@ -142,6 +160,23 @@
   font-size: 11px;
 }
 
+.howContainer {
+  margin-top: 54px;
+  padding-top: 54px;
+  border-top: 1px dashed #dddddd;
+}
+
+.howList {
+  list-style: decimal;
+}
+
+.howItem {
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+
 @media (min-width: 768px) {
   .contest {
     padding-top: 14%;
@@ -165,6 +200,11 @@
 
   .countdownSlot {
     padding: 0 32px 0 32px;
+  }
+
+  .howItem {
+    font-size: 18px;
+    line-height: 28px;
   }
 }
 
@@ -207,7 +247,9 @@ export default {
       const res = googleUser.getAuthResponse();
       console.log(id, profile, res);
       this.isSignIn = this.$gAuth.isAuthorized
-      console.log('auth?', this.$gAuth.isAuthorized)
+      if (this.isSignIn) {
+        this.$router.push({ path: "/contestHome" });
+      }
     }
   },
 

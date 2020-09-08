@@ -1,7 +1,15 @@
 <template>
   <el-row class="header">
       <el-col :md="{span:9, offset:1}" class="hidden-sm-and-down menuContainer">
-        <el-menu class="el-menu-demo" mode="horizontal" v-if="view!=='contest'">
+        <div class="contestHeading" v-if="view==='contest'">
+          Skizzle Contest
+        </div>
+        <div class="contestHeading" v-if="view==='contestHome'">
+          <a class="logoutBtn" href="#" @click="signout">
+            <img class="logoutIcon" src="../assets/logout.svg" height="40" />
+          </a>
+        </div>
+        <el-menu class="el-menu-demo" mode="horizontal" v-else>
           <el-menu-item index="1"><a href="#" v-scroll-to="'#mission'" class="menuLink">Mission</a></el-menu-item>
           <el-menu-item index="2"><a href="#" v-scroll-to="'#demo'" class="menuLink">Demo</a></el-menu-item>
           <el-menu-item index="3"><a href="#" v-scroll-to="'#pricing'" class="menuLink">Pricing</a></el-menu-item>
@@ -10,9 +18,6 @@
             <el-menu-item index="5" class="hidden-md-and-down"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></el-menu-item>
           </el-tooltip>
         </el-menu>
-        <div class="contestHeading" v-else>
-          Skizzle Contest<span class="associationText"> (in association with Matic Network)</span>
-        </div>
       </el-col>
       <el-col :xs="{span:2, offset:1}" :sm="{span:2, offset:1}" class="hidden-md-and-up menuBtnContainer">
         <i class="el-icon-menu"></i>
@@ -34,7 +39,20 @@ import 'element-ui/lib/theme-chalk/display.css';
 
 export default {
   name: 'Header',
-  props: ["view"]
+  props: ["view"],
+  data() {
+    return {
+      email: ""
+    };
+  },
+  methods: {
+    async signout() {
+      const response = await this.$gAuth.signOut();
+      if(response) {
+        this.$router.push({ path: "/contest" });
+      }
+    }
+  }
 }
 </script>
 
@@ -48,6 +66,10 @@ export default {
   top: 0;
   z-index: 999;
   border-bottom: 1px dashed #dddddd;
+}
+
+.logoutIcon {
+  padding-top: 20px;
 }
 
 .logoContainer {
