@@ -126,6 +126,7 @@ import Header from '@/components/Header.vue'
 
 export default {
   name: 'ContestHome',
+  props: ["email"],
   components: {
     Header
   },
@@ -134,5 +135,8 @@ export default {
       attempt: 1,
     };
   },
+  mounted() {
+    console.log(this.email);
+  }
 }
 </script>

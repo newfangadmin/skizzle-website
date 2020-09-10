@@ -30,11 +30,15 @@ export default {
     const res = await fetch(postUrl, {
       method: "POST",
     });
-    console.log(res);
     if (res.status < 400) {
       res.json().then((result) => {
-        console.log(result);
-      })
+        const email = result.email
+        const token = result.token;
+        localStorage.setItem(email, token);
+        this.$router.push({path: "/contestHome", params: { email }});
+      });
+    } else {
+      this.$router.push({path: "/contest", params: { err: "err" }});
     }
   }
 }
