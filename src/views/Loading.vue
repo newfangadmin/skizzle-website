@@ -25,8 +25,7 @@ export default {
   },
   async mounted() {
     const url = window.location.href;
-    console.log(typeof(url));
-    const apiUrl = "https://contest-server.skizzle.email/auth"
+    const apiUrl = "https://contest-server.skizzle.email/auth/"
     const postUrl = url.replace("https://skizzle-website.netlify.app/loading", apiUrl);
     const res = await fetch(postUrl, {
       method: "POST",
