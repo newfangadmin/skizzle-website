@@ -24,7 +24,8 @@ export default {
     };
   },
   mounted() {
-    const url = this.$route.query.page
+    const url = window.location.href;
+    console.log(url);
     const apiUrl = "contest-server.skizzle.email/auth"
     const postUrl = url.replace(/skizzle-website.herokuapp.com\/contest/g, apiUrl);
     console.log(postUrl);
