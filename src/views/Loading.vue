@@ -23,7 +23,7 @@ export default {
       loadingText: "Authenticating...",
     };
   },
-  mounted() {
+  async mounted() {
     const url = window.location.href;
     console.log(url);
     const apiUrl = "https://contest-server.skizzle.email/auth"
