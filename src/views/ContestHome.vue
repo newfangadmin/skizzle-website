@@ -4,7 +4,9 @@
     <div class="contestHome">
       <el-row>
         <el-col :span="22" :offset="1" class="sentContainer">
-          <div class="attemptHeading">Attempt {{ attempt }}</div>
+          <el-card class="attemptCard">
+            <div class="attemptHeading">Attempt {{ attempt }}</div>
+          </el-card>
           <div class="sentHeading">Woot! Your random keystore is on it's way to your inbox.</div>
           <img class="goodLuck" src="https://media.giphy.com/media/j1Xyt3DHfJcmk/giphy.gif" />
         </el-col>
@@ -50,8 +52,15 @@
   margin-bottom: 30px;
 }
 
+.attemptCard {
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 30px;
+}
+
 .attemptHeading {
   color: #ff5b00;
+  margin-bottom: 0;
 }
 
 .whatNextContainer, .tryAgainContainer {
@@ -81,6 +90,11 @@
   .contestHome {
     padding-top: 14%;
   }
+
+  .attemptCard {
+    width: 40%;
+    margin-left: 30%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -88,9 +102,21 @@
     padding-top: 8%;
   }
 
+  .attemptCard {
+    width: 30%;
+    margin-left: 35%;
+  }
+
   .whatNextItem {
     font-size: 18px;
     line-height: 28px;
+  }
+}
+
+@media (min-width: 992px) {
+  .attemptCard {
+    width: 20%;
+    margin-left: 40%;
   }
 }
 </style>

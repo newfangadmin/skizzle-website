@@ -26,7 +26,7 @@
       </el-row>
     </el-col>
     <el-col :span="24" class="copyrightContainer">
-      Copyright Skizzle 2020
+      &copy;Copyright Skizzle 2020
     </el-col>
   </el-row>
 </template>

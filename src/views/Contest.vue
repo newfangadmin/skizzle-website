@@ -30,7 +30,7 @@
         </countdown>
       </el-row>
       <el-row class="signupContainer">
-        <el-col :span="22" :offset="1" class="signupHeading">Register to the contest with your GMail</el-col>
+        <el-col :span="22" :offset="1" class="signupHeading">Register to the contest with your Gmail</el-col>
         <el-col :xs="{span:14, offset:5}" :sm="{span:8, offset:8}" :md="{span:6, offset:9}" :lg="{span:4, offset:10}" class="signup">
           <div class="google-btn" @click="signin">
             <div class="google-icon-wrapper">
@@ -50,15 +50,46 @@
         <el-col :span="22" :offset="1" class="signupHeading">How it works</el-col>
         <el-col :xs="{span:24}" :md="{span:20, offset:2}" :lg="{span:16, offset:4}" class="howListContainer">
           <ul class="howList">
-            <li class="howItem">Follow us on twitter <a href="https://twitter.com/skizzledotemail" target="_blank">@skizzledotemail</a>.</li>
-            <li class="howItem">Like/Retweet our pinned post <a href="https://twitter.com/skizzledotemail" target="_blank">here</a>.</li>
-            <li class="howItem">Signup with your Gmail account.</li>
+            <!-- <li class="howItem">Follow us on twitter <a href="https://twitter.com/skizzledotemail" target="_blank">@skizzledotemail</a>.</li>
+            <li class="howItem">Like/Retweet our pinned post <a href="https://twitter.com/skizzledotemail" target="_blank">here</a>.</li> -->
+            <li class="howItem">Signup above with your Gmail account.</li>
             <li class="howItem">You will then receive an email from hello@skizzle.email with an encrypted attachment.</li>
             <li class="howItem">Install the Skizzle chrome extension and use it to decrypt the attachment.</li>
             <li class="howItem">The attachment is actually a keystore file to a random wallet.</li>
             <li class="howItem">Use the keystore file to access the wallet and check if you it has any USDT(erc20).</li>
             <li class="howItem">If you find any USDT(erc20), VOILA!, you have won. Immediately transfer the tokens to any of your other wallets.</li>
           </ul>
+        </el-col>
+      </el-row>
+      <el-row class="prizeContainer">
+        <el-col :span="22" :offset="1" class="signupHeading">$400 worth USDT prize pool</el-col>
+        <el-col :span="22" :offset="1" class="prizesContainer">
+          <el-row>
+            <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
+              <div class="prize">
+                <div class="prizeAmount">100<br/><span class="currency">USDT</span></div>
+                <div class="prizeText"><span class="keystores">1 keystore file</span><br/>unlocks a wallet with 100 USDT</div>
+              </div>
+            </el-col>
+            <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
+              <div class="prize">
+                <div class="prizeAmount">50<br/><span class="currency">USDT</span></div>
+                <div class="prizeText"><span class="keystores">2 keystore files</span><br/>unlock wallets with 50 USDT each</div>
+              </div>
+            </el-col>
+            <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
+              <div class="prize">
+                <div class="prizeAmount">10<br/><span class="currency">USDT</span></div>
+                <div class="prizeText"><span class="keystores">10 keystore files</span><br/>unlock wallets with 10 USDT each</div>
+              </div>
+            </el-col>
+            <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
+              <div class="prize">
+                <div class="prizeAmount">5<br/><span class="currency">USDT</span></div>
+                <div class="prizeText"><span class="keystores">20 keystore files</span><br/>unlock wallets with 5 USDT each</div>
+              </div>
+            </el-col>
+          </el-row>
         </el-col>
       </el-row>
     </div>
@@ -114,7 +145,7 @@
 }
 
 .google-btn {
-  width: 80%;
+  width: 192px;
   height: 42px;
   margin-left: 10%;
   background-color: #4285f4;
@@ -160,7 +191,7 @@
   font-size: 11px;
 }
 
-.howContainer {
+.howContainer, .prizeContainer {
   margin-top: 54px;
   padding-top: 54px;
   border-top: 1px dashed #dddddd;
@@ -175,6 +206,37 @@
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
+}
+
+.prize {
+  text-align: center;
+}
+
+.prizeAmount {
+  background-color: black;
+  border-radius: 6px;
+  color: white;
+  width: 50%;
+  margin-left: 25%;
+  padding: 30px 0 30px 0;
+  font-family: "GilroyEB";
+  font-size: 40px;
+}
+
+.currency {
+  font-family: "Fira Code";
+  font-size: 24px;
+}
+
+.prizeText {
+  margin-top: 20px;
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 40px;
+}
+
+.keystores {
+  color: #ff5b00;
 }
 
 @media (min-width: 768px) {
@@ -234,25 +296,34 @@ export default {
   },
   data() {
     return {
-      time: (new Date('September 9, 2020 23:59:59 GMT') - new Date()),
+      time: (new Date('September 12, 2020 23:59:59 GMT') - new Date()),
       isSignIn: false,
     };
   },
 
   methods: {
     async signin() {
-      const googleUser = await this.$gAuth.signIn();
-      const authCode = await this.$gAuth.getAuthCode()
-      const id = googleUser.getId();
-      const profile = googleUser.getBasicProfile();
-      const res = googleUser.getAuthResponse();
-      console.log('authCode:', authCode);
-      console.log('id:', id);
-      console.log('profile:', profile);
-      console.log('authRes:', res);
-      this.isSignIn = this.$gAuth.isAuthorized
-      if (this.isSignIn) {
-        this.$router.push({ path: "/contestHome" });
+      // const googleUser = await this.$gAuth.signIn();
+      // const authCode = await this.$gAuth.getAuthCode()
+      // const id = googleUser.getId();
+      // const profile = googleUser.getBasicProfile();
+      // const res = googleUser.getAuthResponse();
+      // console.log('authCode:', authCode);
+      // console.log('id:', id);
+      // console.log('profile:', profile);
+      // console.log('authRes:', res);
+      // this.isSignIn = this.$gAuth.isAuthorized
+      // if (this.isSignIn) {
+      //   this.$router.push({ path: "/contestHome" });
+      // }
+      const res = await fetch("https://contest-server.skizzle.email/auth", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+      if (res.status < 400) {
+        console.log(res);
       }
     }
   },
