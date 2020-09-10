@@ -32,15 +32,16 @@ export default {
     });
     if (res.status < 400) {
       res.json().then((result) => {
-        const email = result.email
+        const email = result.email;
         const token = result.token;
+        const firstName = result.first_name;
         const localStorageKey = `skizzleContest|${email}`;
         let firstLogin = false
         if (!localStorage.getItem(localStorageKey)) {
           firstLogin = true;
         }
         localStorage.setItem(localStorageKey, token);
-        this.$router.push(`/contestHome/${email}/${firstLogin}`);
+        this.$router.push(`/contestHome/${email}/${firstLogin}/${firstName}`);
       });
     } else {
       this.$router.push(`/contest/err`);

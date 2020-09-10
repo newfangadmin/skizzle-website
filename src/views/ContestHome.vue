@@ -141,7 +141,7 @@ import Header from '@/components/Header.vue'
 
 export default {
   name: 'ContestHome',
-  props: ["email", "firstLogin"],
+  props: ["email", "firstLogin", "firstName"],
   components: {
     Header
   },
