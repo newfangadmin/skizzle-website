@@ -52,7 +52,7 @@ export default {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem(key)}`
+          Authorization: `Token ${localStorage.getItem(key)}`
         }
       });
       if (res.status < 400) {
