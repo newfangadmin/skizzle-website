@@ -25,15 +25,10 @@ export default {
   },
   async mounted() {
     const url = window.location.href;
-    console.log(url);
     const apiUrl = "https://contest-server.skizzle.email/auth"
     const postUrl = url.replace("https://skizzle-website.herokuapp.com/loading", apiUrl);
-    console.log(typeof(postUrl));
     const res = await fetch(postUrl, {
       method: "POST",
-      data: {
-        "key": "val"
-      }
     });
     console.log(res);
     if (res.status < 400) {
