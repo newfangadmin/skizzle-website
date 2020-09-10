@@ -48,6 +48,16 @@ h3 {
   font-family: "GilroyEB";
 }
 
+.el-loading-spinner .path {
+  stroke: #000000 !important;
+}
+
+.el-loading-text {
+  font-family: "Fira Code";
+  color: #000000 !important;
+  font-weight: 500;
+}
+
 .el-tooltip__popper.is-dark {
   font-family: "Fira Code";
 }

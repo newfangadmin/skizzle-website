@@ -316,7 +316,7 @@ export default {
       // if (this.isSignIn) {
       //   this.$router.push({ path: "/contestHome" });
       // }
-      const res = await fetch("https://contest-server.skizzle.email/auth", {
+      const res = await fetch("https://contest-server.skizzle.email/auth/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
