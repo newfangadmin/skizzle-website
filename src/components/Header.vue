@@ -47,11 +47,24 @@ export default {
   },
   methods: {
     async signout() {
-      const response = await this.$gAuth.signOut();
-      if(response) {
+      const key = `skizzleContest|${this.email}`;
+      const res = await fetch("https://contest-server.skizzle.email/auth/logout/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem(key)}`
+        }
+      });
+      if (res.status < 400) {
+        localStorage.clear();
         this.$router.push({ path: "/contest" });
       }
     }
+  },
+  mounted() {
+    this.$root.$on('gotEmail', (email) => {
+      this.email = email;
+    });
   }
 }
 </script>

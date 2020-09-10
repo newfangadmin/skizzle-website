@@ -34,8 +34,13 @@ export default {
       res.json().then((result) => {
         const email = result.email
         const token = result.token;
-        localStorage.setItem(email, token);
-        this.$router.push(`/contestHome/${email}`);
+        const localStorageKey = `skizzleContest|${email}`;
+        let firstLogin = false
+        if (!localStorage.getItem(localStorageKey)) {
+          firstLogin = true;
+        }
+        localStorage.setItem(localStorageKey, token);
+        this.$router.push(`/contestHome/${email}/${firstLogin}`);
       });
     } else {
       this.$router.push(`/contest/err`);

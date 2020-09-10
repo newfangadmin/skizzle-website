@@ -4,11 +4,10 @@
     <div class="contestHome">
       <el-row>
         <el-col :span="22" :offset="1" class="sentContainer">
+          <div class="tryAgainSub">Hey {{this.firstName}}<br/>An email with a random keystore file has been sent to <span class="altColor">{{ this.email }}</span><br/><br/>You are currently on:</div>
           <el-card class="attemptCard">
             <div class="attemptHeading">Attempt {{ attempt }}</div>
           </el-card>
-          <div class="sentHeading">Woot! Your random keystore is on it's way to your inbox.</div>
-          <img class="goodLuck" src="https://media.giphy.com/media/j1Xyt3DHfJcmk/giphy.gif" />
         </el-col>
       </el-row>
       <el-row class="whatNextContainer">
@@ -32,6 +31,16 @@
         </el-col>
       </el-row>
     </div>
+    <el-dialog
+      title="Woot!"
+      :visible.sync="mailSentDialogVisible"
+      width="60%"
+      center>
+      <div class="sentDialogContainer">
+        <div class="sentHeading">Your random keystore is on it's way to your inbox.</div>
+        <img class="goodLuck" src="https://media.giphy.com/media/j1Xyt3DHfJcmk/giphy.gif" />
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -44,18 +53,24 @@
   text-align: center;
 }
 
+.sentDialogContainer {
+  text-align: center;
+}
+
 .attemptHeading, .sentHeading, .whatNextHeading, .tryAgainHeading {
   text-align: center;
   font-family: "GilroyEB";
   font-size: 28px;
   text-transform: uppercase;
   margin-bottom: 30px;
+  color: black;
 }
 
 .attemptCard {
   width: 60%;
   margin-left: 20%;
   margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .attemptHeading {
@@ -126,18 +141,26 @@ import Header from '@/components/Header.vue'
 
 export default {
   name: 'ContestHome',
-  props: ["email"],
+  props: ["email", "firstLogin"],
   components: {
     Header
   },
   data() {
     return {
       attempt: 1,
+      token: "",
+      mailSentDialogVisible: false,
     };
   },
   mounted() {
-    console.log('1', this.email);
-    console.log('2', localStorage.getItem(this.email));
+    this.$root.$emit('gotEmail', this.email);
+    this.token = localStorage.getItem(`skizzleContest|${this.email}`);
+    if (!this.token) {
+      //this.$router.push("/contest");
+    }
+    if (this.firstLogin) {
+      this.mailSentDialogVisible = true;
+    }
   }
 }
 </script>

@@ -28,7 +28,7 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Contest.vue')
   },
   {
-    path: '/contestHome/:email',
+    path: '/contestHome/:email?/:firstLogin?',
     name: 'ContestHome',
     props: true,
     // route level code-splitting
