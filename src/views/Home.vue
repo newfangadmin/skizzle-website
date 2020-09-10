@@ -11,7 +11,7 @@
           Skizzle is, currently, a <span class="altColor">chrome extension</span> that allows you to send/receive end-to-end encrypted attachments right in your Gmail.
         </el-row>
         <el-row class="chromeWebstoreBtnContainer">
-          <a href="https://explorer.skizzle.email" target="_blank">
+          <a href="/contest" target="_blank">
             <img class="chromeWebstoreBtn" src="../assets/ChromeWebStore_Badge_v2_340x96.png">
           </a>
         </el-row>
