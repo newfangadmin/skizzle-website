@@ -136,7 +136,8 @@ export default {
     };
   },
   mounted() {
-    console.log(this.email);
+    console.log('1', this.email);
+    console.log('2', localStorage.getItem(this.email));
   }
 }
 </script>

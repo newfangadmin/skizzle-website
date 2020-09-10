@@ -35,10 +35,10 @@ export default {
         const email = result.email
         const token = result.token;
         localStorage.setItem(email, token);
-        this.$router.push({path: "/contestHome", params: { email }});
+        this.$router.push(`/contestHome/${email}`);
       });
     } else {
-      this.$router.push({path: "/contest", params: { err: "err" }});
+      this.$router.push(`/contest/err`);
     }
   }
 }
