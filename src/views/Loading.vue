@@ -28,7 +28,17 @@ export default {
     console.log(url);
     const apiUrl = "https://contest-server.skizzle.email/auth"
     const postUrl = url.replace("https://skizzle-website.herokuapp.com/loading", apiUrl);
-    console.log(postUrl);
+    const res = await fetch(postUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+    if (res.status < 400) {
+      res.json().then((result) => {
+        console.log(result);
+      })
+    }
   }
 }
 </script>
