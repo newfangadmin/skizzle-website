@@ -30,11 +30,9 @@ export default {
     const postUrl = url.replace("https://skizzle-website.herokuapp.com/loading", apiUrl);
     console.log(postUrl);
     const res = await fetch(postUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      }
+      method: "POST"
     });
+    console.log(res);
     if (res.status < 400) {
       res.json().then((result) => {
         console.log(result);
