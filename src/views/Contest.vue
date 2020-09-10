@@ -324,7 +324,7 @@ export default {
       });
       if (res.status < 400) {
         res.json().then((result) => {
-          window.location(result);
+          window.location.replace(result);
         })
       }
     }
