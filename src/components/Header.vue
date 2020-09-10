@@ -49,7 +49,7 @@ export default {
     async signout() {
       const key = `skizzleContest|${this.email}`;
       const res = await fetch("https://contest-server.skizzle.email/auth/logout/", {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Token ${localStorage.getItem(key)}`
