@@ -323,7 +323,9 @@ export default {
         }
       });
       if (res.status < 400) {
-        console.log(res);
+        res.json().then((result) => {
+          console.log(result);
+        })
       }
     }
   },

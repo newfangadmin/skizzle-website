@@ -22,6 +22,12 @@ export default {
       loading: true,
       loadingText: "Authenticating...",
     };
+  },
+  mounted() {
+    const url = this.$route.query.page
+    const apiUrl = "contest-server.skizzle.email/auth"
+    const postUrl = url.replace(/skizzle-website.herokuapp.com\/contest/g, apiUrl);
+    console.log(postUrl);
   }
 }
 </script>
