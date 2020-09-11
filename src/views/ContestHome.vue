@@ -225,7 +225,7 @@ export default {
       attempt: 1,
       token: "",
       mailSentDialogVisible: false,
-      twitterDialogVisible: true,
+      twitterDialogVisible: false,
       tweetText: "I'm going for gold with the @skizzledotemail contest! Check it out https://skizzle.email/contest It is the most secure way to share files.",
       tweetLink: "",
       url: "https://skizzle-website.netlify.app/img/ChromeWebStore_Badge_v2_340x96.991809bf.png"
@@ -233,7 +233,7 @@ export default {
   },
   methods: {
     async tryAgainInit() {
-      const res = await fetch("https://contest-server.skizzle.email//wallet/new-attempt/", {
+      const res = await fetch("https://contest-server.skizzle.email/wallet/new-attempt", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -242,7 +242,7 @@ export default {
       });
       if (res.status < 400) {
         res.json().then((result) => {
-          this.tweetText += result.code;
+          console.log(result);
           this.twitterDialogVisible = true;
         }); 
       }
@@ -253,34 +253,47 @@ export default {
       document.execCommand('copy');
     },
 
-    forceFileDownload(response){
-      const url = window.URL.createObjectURL(new Blob([response.data]))
-      const link = document.createElement('a')
-      link.href = url
-      link.setAttribute('download', 'dummy.pdf') //or any other extension
-      document.body.appendChild(link)
-      link.click()
-    },
-
     downloadPDF() {
       fetch(this.url, {
         method: 'get',
-        responseType: 'arraybuffer'
       })
-      .then(response => {
-        this.forceFileDownload(response)  
+      .then(response => response.blob())
+      .then(blob => {
+          var url = window.URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = "some.png";
+          document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
+          a.click();    
+          a.remove();  //afterwards we remove the element again         
       })
-      .catch(() => console.log('error occured'))
+      .catch(() => console.log('error occured'));
     }
   },
-  mounted() {
+  async mounted() {
     this.$root.$emit('gotEmail', this.email);
     this.token = localStorage.getItem(`skizzleContest|${this.email}`);
     if (!this.token) {
-      //this.$router.push("/contest");
+      this.$router.push("/contest");
     }
     if (JSON.parse(this.firstLogin)) {
       this.mailSentDialogVisible = true;
+    }
+    const res = await fetch("https://contest-server.skizzle.email/wallet/new-attempt/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${this.token}`
+      }
+    });
+    if (res.status < 400) {
+      res.json().then((result) => {
+        if (result.attempted) {
+          this.attempt = 2;
+        } else {
+          this.attempt = 1;
+        }
+      }); 
     }
   }
 }
