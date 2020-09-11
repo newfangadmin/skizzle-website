@@ -89,6 +89,12 @@ h3 {
   font-weight: 900 !important;
 }
 
+.el-dialog__title {
+  font-size: 24px !important;
+  font-family: "GilroyEB" !important;
+  text-transform: uppercase;
+}
+
 .el-carousel__container {
   height: 240px !important;
 }
