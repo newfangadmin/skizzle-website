@@ -133,5 +133,9 @@ h3 {
   .el-menu-item {
     padding: 0 20px !important;
   }
+
+  .el-dialog--center {
+    width: 60% !important;
+  }
 }
 </style>

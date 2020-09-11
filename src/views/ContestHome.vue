@@ -199,7 +199,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .attemptCard {
     width: 20%;
     margin-left: 40%;
@@ -224,7 +224,7 @@ export default {
     return {
       attempt: 1,
       token: "",
-      mailSentDialogVisible: false,
+      mailSentDialogVisible: true,
       twitterDialogVisible: false,
       tweetText: "I'm going for gold with the @skizzledotemail contest! Check it out https://skizzle.email/contest It is the most secure way to share files.",
       tweetLink: "",
@@ -274,7 +274,7 @@ export default {
     this.$root.$emit('gotEmail', this.email);
     this.token = localStorage.getItem(`skizzleContest|${this.email}`);
     if (!this.token) {
-      this.$router.push("/contest");
+      // this.$router.push("/contest");
     }
     if (JSON.parse(this.firstLogin)) {
       this.mailSentDialogVisible = true;
