@@ -287,9 +287,9 @@ export default {
           "Content-Type": "application/json",
           Authorization: `Token ${this.token}`
         },
-        body: {
+        body: JSON.stringify({
           url: "https://twitter.com/asdf"
-        }
+        })
       });
       if (res.status < 400) {
         res.json().then((result) => {
