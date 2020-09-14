@@ -4,8 +4,8 @@
     <div class="contestHome">
       <el-row>
         <el-col :span="22" :offset="1" class="sentContainer">
-          <div class="sentSub" v-if="attempt===1"><span class="greeting">Hey {{this.firstName}},</span><br/>An email with a random keystore file has been sent to <span class="altColor">{{ this.email }}</span><br/><br/>You are currently on:</div>
-          <div class="sentSub" v-if="attempt===2"><span class="greeting">Hey {{this.firstName}},</span><br/>Send an email to 3 of your contacts with the attachment you downloaded.<br/>We will verify the email and send a 2nd random keystore to <span class="altColor">{{ this.email }}</span><br/><br/>You are currently on:</div>
+          <div class="sentSub" v-if="attempt===1"><span class="greeting">Hey {{this.firstName}},</span><br/>an email with a random keystore file has been sent to <span class="altColor">{{ this.email }}</span><br/><br/>You are currently on:</div>
+          <div class="sentSub" v-if="attempt===2"><span class="greeting">Hey {{this.firstName}},</span><br/>send an email to 3 of your contacts with the attachment you downloaded.<br/>We will verify the email and send a 2nd random keystore to <span class="altColor">{{ this.email }}</span><br/><br/>You are currently on:</div>
           <el-card class="attemptCard">
             <div class="attemptHeading">Attempt {{ attempt }}</div>
           </el-card>
@@ -101,7 +101,7 @@
 }
 
 .greeting {
-  font-size: 28px;
+  // font-size: 28px;
 }
 
 .attemptHeading, .sentHeading, .whatNextHeading, .tryAgainHeading {
@@ -248,7 +248,7 @@ export default {
   },
   data() {
     return {
-      attempt: 1,
+      attempt: 2,
       token: "",
       mailSentDialogVisible: false,
       mailSentDialogVisible2: false,
@@ -286,6 +286,9 @@ export default {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Token ${this.token}`
+        },
+        body: {
+          url: "https://twitter.com/asdf"
         }
       });
       if (res.status < 400) {
@@ -319,7 +322,7 @@ export default {
     this.$root.$emit('gotEmail', this.email);
     this.token = localStorage.getItem(`skizzleContest|${this.email}`);
     if (!this.token) {
-      this.$router.push("/contest");
+      // this.$router.push("/contest");
     }
     if (JSON.parse(this.firstLogin)) {
       this.mailSentDialogVisible = true;
