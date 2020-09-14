@@ -281,7 +281,7 @@ export default {
     },
 
     async secondAttempt() {
-      const res = await fetch("https://contest-server.skizzle.email/wallet/new-attempt", {
+      const res = await fetch("https://contest-server.skizzle.email/wallet/new-attempt/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
