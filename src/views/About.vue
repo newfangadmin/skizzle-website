@@ -25,9 +25,27 @@
         <el-col :span="20" :offset="2" class="sectionHeader">
           Join us
         </el-col>
-        <el-col :span="16" :offset="4" class="sectionSub">
+        <el-col :span="20" :offset="2" class="sectionSub">
           If you like what we doing and would like to contribute, email us <a href="mailto:hello@skizzle.email">hello@skizzle.email</a>.<br/>
           We are always looking to add exceptional people to our team across our sales, design and tech functions.
+        </el-col>
+      </el-row>
+      <el-row class="section">
+        <el-col :span="20" :offset="2" class="sectionHeader">
+          Our partners
+        </el-col>
+        <el-col :span="20" :offset="2" class="sectionSub">
+          We've partnered up with industry leaders to deliver the best possible solution.
+        </el-col>
+        <el-col :span="12" class="partnerContainer">
+          <a href="https://matic.network" target="_blank">
+            <img class="partnerLogo" src="../assets/matic-logo-dark.svg" />
+          </a>
+        </el-col>
+        <el-col :span="12" class="partnerContainer">
+          <a href="https://tor.us" target="_blank">
+            <img class="partnerLogo torusLogo" src="../assets/torus-wordmark-blue.svg" />
+          </a>
         </el-col>
       </el-row>
     </div>
@@ -80,9 +98,23 @@ export default {
   text-align: center;
 }
 
+.partnerLogo {
+  width: 80%;
+  padding-top: 30px;
+}
+
+.torusLogo {
+  width: 50%;
+  padding-top: 55px;
+}
+
 @media (min-width: 768px) {
   .about {
     padding-top: 22%;
+  }
+
+  .torusLogo {
+    padding-top: 80px;
   }
 }
 
@@ -90,11 +122,19 @@ export default {
   .about {
     padding-top: 16%;
   }
+
+  .torusLogo {
+    padding-top: 100px;
+  }
 }
 
 @media (min-width: 1200px) {
   .about {
     padding-top: 12%;
+  }
+
+  .torusLogo {
+    padding-top: 120px;
   }
 }
 </style>

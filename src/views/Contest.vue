@@ -87,7 +87,7 @@
             <li class="howItem">You will then receive an email from hello@skizzle.email with an encrypted attachment.</li>
             <li class="howItem">Install the Skizzle chrome extension and use it to decrypt the attachment.</li>
             <li class="howItem">The attachment is actually a keystore file to a random wallet.</li>
-            <li class="howItem">Use the keystore file to access the wallet and check if you it has any USDT(erc20).</li>
+            <li class="howItem">Use the keystore file to access the wallet and check if it has any USDT(erc20).</li>
             <li class="howItem">If you find any USDT(erc20), VOILA!, you have won. Immediately transfer the tokens to any of your other wallets.</li>
           </ul>
         </el-col>
