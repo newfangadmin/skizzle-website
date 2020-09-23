@@ -28,6 +28,9 @@
     <el-col :span="24" class="contactContainer">
       hello@skizzle.email
     </el-col>
+    <el-col :span="24" class="privacyContainer">
+      <a class="privacyLink" href="/privacy" target="_blank">Privacy Policy</a>
+    </el-col>
     <el-col :span="24" class="copyrightContainer">
       &copy;Copyright <a class="copyrightLink" href="https://newfang.io" target="_blank">Newfang Networks</a> 2020
     </el-col>
@@ -100,6 +103,16 @@ export default {
   margin-top: 10px;
   font-size: 11px;
   margin-bottom: 20px;
+}
+
+.privacyContainer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.privacyLink {
+  color: #aaaaaa;
+  font-size: 12px;
 }
 
 @media (min-width: 992px) {

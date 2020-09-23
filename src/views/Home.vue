@@ -21,7 +21,7 @@
       <el-col :span="20" :offset="2" class="sectionHeader">
         We are on a mission to democratize the security and privacy of your data.
       </el-col>
-      <el-col :span="16" :offset="4" class="sectionSub">
+      <el-col :span="20" :offset="2" class="sectionSub">
         Built on the principles of <a href="https://en.wikipedia.org/wiki/Privacy_by_design" target="_blank">Privacy by Design</a>, Skizzle aims to deliver a solution set that  is:
       </el-col>
       <el-col :span="24" class="featuresContainer">
@@ -53,7 +53,7 @@
       <el-col :span="20" :offset="2" class="sectionHeader">
         Skizzle is deadly easy to use. Just do the things you already do.
       </el-col>
-      <el-col :span="16" :offset="4" class="sectionSub">
+      <el-col :span="20" :offset="2" class="sectionSub">
         Forget about encrypting in one app, uploading to another and sharing with a third. Simply Compose -> Attach -> Send on Gmail.
       </el-col>
       <el-col :span="20" :offset="2" class="demoVideoContainer">
@@ -65,7 +65,7 @@
       <el-col :span="20" :offset="2" class="sectionHeader">
         Skizzle is privacy preserving and secure by design. No compromises.
       </el-col>
-      <el-col :span="16" :offset="4" class="sectionSub">
+      <el-col :span="20" :offset="2" class="sectionSub">
         Share files that only you and the intended recipients can access. Not even Gmail. Not even us!
       </el-col>
       <el-col :span="20" :offset="2" class="featuresContainer">
@@ -117,7 +117,7 @@
       <el-col :span="20" :offset="2" class="sectionHeader">
         Backed by a public blockchain, Skizzle provides unprecedent transparency and trust.
       </el-col>
-      <el-col :span="16" :offset="4" class="sectionSub">
+      <el-col :span="20" :offset="2" class="sectionSub">
         Every action you perform is written to the <a href="https://matic.network" target="_blank">Matic Blockchain</a>. Publicly verify your usage and who has access to your files, anytime.
       </el-col>
       <el-col :span="24" class="featuresContainer">
@@ -151,7 +151,7 @@
       <el-col :span="20" :offset="2" class="sectionHeader">
         Big or small, individuals, businesses and institutions of all sizes deserve to be able to protect their data.
       </el-col>
-      <el-col :span="16" :offset="4" class="sectionSub">
+      <el-col :span="20" :offset="2" class="sectionSub">
         With Skizzle, you don't pay less and get lowered security. All our plans come with the same state-of-the-art encryption schemes and privacy control.
       </el-col>
       <el-col :span="24" class="featuresContainer">
@@ -203,7 +203,7 @@
       <el-col :span="20" :offset="2" class="sectionHeader">
         Stay up to date with what we are upto
       </el-col>
-      <el-col :span="16" :offset="4" class="sectionSub">
+      <el-col :span="20" :offset="2" class="sectionSub">
         Signup below if you would like early access to our paid plans and be updated with what we are doing right now, next month, a year down the line...
       </el-col>
       <el-col :span="24" class="featuresContainer">
@@ -298,7 +298,7 @@ export default {
   line-height: 56px;
   text-transform: uppercase;
   text-align: center;
-  margin-top: 16%;
+  margin-top: 24%;
 }
 
 .heroSubContainer {
@@ -328,7 +328,7 @@ export default {
 
 .sectionHeader {
   font-family: "GilroyEB";
-  font-size: 28px;
+  font-size: 22px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -471,7 +471,7 @@ export default {
   }
 
   .heroMainContainer {
-    margin-top: 4%;
+    margin-top: 10%;
   }
 
   .heroSubContainer {
@@ -502,7 +502,7 @@ export default {
   }
 
   .heroMainContainer {
-    margin-top: 0;
+    margin-top: 10%;
   }
 
   .heroSubContainer {
@@ -534,6 +534,7 @@ export default {
   .heroMainContainer {
     font-size: 72px;
     line-height: 76px;
+    margin-top: 1%;
   }
 
   .heroSubContainer {

@@ -43,7 +43,7 @@
           </div>
         </el-col>
         <el-col :span="24" class="terms">
-          By signing up you accept the contest's <a href="/contestTerms" target="_blank">Terms & Conditions</a>
+          By signing up you accept the contest's <a href="https://blog.skizzle.email/skizzle-launch-crypto-giveaway-terms-conditions/" target="_blank">Terms & Conditions</a>
         </el-col>
       </el-row>
       <el-row class="prizeContainer">
