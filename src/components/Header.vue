@@ -34,7 +34,7 @@
     </el-row>
     <el-row class="contestContainer" v-if="view!=='contest' && view!=='contestHome'">
       <el-col class="contestText">
-        Head over to our <a class="contestLink" href="/contest" target="_blank">Contest</a> page and see how you can win $500 in USDT
+        Head over to our <a class="contestLink" href="/contest" target="_blank">Contest</a> page and see how you can win $600 in USDT
       </el-col>
     </el-row>
     <el-dialog
