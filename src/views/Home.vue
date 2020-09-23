@@ -166,7 +166,7 @@
                 <li class="planFeature"><i class="el-icon-finished planFeatureIcon" />100MB max file size</li>
                 <li class="planFeature"><i class="el-icon-finished planFeatureIcon" />Unlimited Bandwidth</li>
               </ul>
-              <el-button icon="el-icon-download">Get Skizzle</el-button>
+              <el-button icon="el-icon-download" @click="navigate('https://chrome.google.com/webstore/detail/skizzle/mjkcepplkockpofgjhbnbjajfljleegm')">Get Skizzle</el-button>
             </el-card>
           </el-col>
           <el-col :xs="{span:20, offset:2}"  :sm="{span:20, offset:2}" :md="{span:12, offset:6}" :lg="{span:8, offset:0}" class="feature">
@@ -278,7 +278,11 @@ export default {
           this.signupError = false;
         }, 3000)
       }
-    }
+    },
+
+    navigate(url) {
+      window.open(url, "_blank");
+    },
   }
 }
 </script>
