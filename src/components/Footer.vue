@@ -25,8 +25,11 @@
         </el-col>
       </el-row>
     </el-col>
+    <el-col :span="24" class="contactContainer">
+      hello@skizzle.email
+    </el-col>
     <el-col :span="24" class="copyrightContainer">
-      &copy;Copyright Skizzle 2020
+      &copy;Copyright <a class="copyrightLink" href="https://newfang.io" target="_blank">Newfang Networks</a> 2020
     </el-col>
   </el-row>
 </template>
@@ -85,10 +88,16 @@ export default {
   height: 36px;
 }
 
+.contactContainer {
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+}
+
 .copyrightContainer {
   text-align: center;
   color: #aaaaaa;
-  margin-top: 30px;
+  margin-top: 10px;
   font-size: 11px;
   margin-bottom: 20px;
 }

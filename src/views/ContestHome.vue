@@ -17,14 +17,14 @@
           <div class="whatNextSub" v-if="attempt===1">An email from us should arrive shortly. Once it does, getting hold of the keystore file is fairly intuitive but here are some videos to help you out:</div>
           <div class="whatNextSub" v-if="attempt===2">Send the pdf file as a Skizzle encrypted attachment to 3 of your contacts and cc/bcc us in the same email. We will verify it and send over your 2nd random keystore.<br/>Sending a Skizzle encrypted attachment is fairly intuitive but here is a video to help you out:</div>
           <ul class="whatNextList" v-if="attempt===2">
-            <li class="whatNextItem">Checkout how to add a Skizzle encrypted attachment and send it in <a href="https://youtube.com" target="_blank">this 14 second video</a>.</li>
+            <li class="whatNextItem">Checkout how to add a Skizzle encrypted attachment and send it in <a href="https://youtu.be/ZVyhp03h-9A" target="_blank">this 20 second video</a>.</li>
           </ul>
           <div class="whatNextSub" v-if="attempt===2">Also check out:</div>
           <ul class="whatNextList">
-            <li class="whatNextItem">Checkout how to install Skizzle in <a href="https://youtube.com" target="_blank">this 14 second video</a>.</li>
-            <li class="whatNextItem">Checkout how to create a Skizzle account in <a href="https://youtube.com" target="_blank">this 12 second video</a>.</li>
-            <li class="whatNextItem">Checkout how to decrypt and download the encrypted attachment in <a href="https://youtube.com" target="_blank">this 13 second video</a>.</li>
-            <li class="whatNextItem">Checkout how to import the keystore into your metamask in <a href="https://youtube.com" target="_blank">this 13 second video</a>.</li>
+            <li class="whatNextItem">Checkout how to install Skizzle in <a href="https://youtu.be/d2JZwEtV_58" target="_blank">this 20 second video</a>.</li>
+            <li class="whatNextItem">Checkout how to create a Skizzle account in <a href="https://youtu.be/TAnMxbDEMHg" target="_blank">this 20 second video</a>.</li>
+            <li class="whatNextItem">Checkout how to decrypt and download the encrypted attachment in <a href="https://youtu.be/3KKrWJ6oMcg" target="_blank">this 15 second video</a>.</li>
+            <li class="whatNextItem">Checkout how to import the keystore into your metamask in <a href="https://youtu.be/dFjLMIzQYuI" target="_blank">this 53 second video</a>.</li>
           </ul>
         </el-col>
       </el-row>
@@ -292,6 +292,9 @@ export default {
         res.json().then((result) => {
           console.log(result);
           this.mailSentDialogVisible2 = true;
+          if (this.twitterDialogVisible) {
+            this.twitterDialogVisible = false;
+          }
           this.attempt = 2;
         }); 
       }

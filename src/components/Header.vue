@@ -1,37 +1,57 @@
 <template>
-  <el-row class="header">
-      <el-col :md="{span:9, offset:1}" class="hidden-sm-and-down menuContainer">
-        <div class="contestHeading" v-if="view==='contest'">
-          Skizzle Contest
-        </div>
-        <div class="contestHeading" v-else-if="view==='contestHome'">
-          <a class="logoutBtn" href="#" @click="signout">
-            <img class="logoutIcon" src="../assets/logout.svg" height="40" />
-          </a>
-        </div>
-        <el-menu class="el-menu-demo" mode="horizontal" v-else>
-          <el-menu-item index="1"><a href="#" v-scroll-to="'#mission'" class="menuLink">Mission</a></el-menu-item>
-          <el-menu-item index="2"><a href="#" v-scroll-to="'#demo'" class="menuLink">Demo</a></el-menu-item>
-          <el-menu-item index="3"><a href="#" v-scroll-to="'#pricing'" class="menuLink">Pricing</a></el-menu-item>
-          <el-menu-item index="4"><a href="#" v-scroll-to="'#contact'" class="menuLink">Contact</a></el-menu-item>
-          <el-tooltip class="item" effect="dark" content="Explore live transactions on Skizzle's public blockchain explorer ↗" placement="bottom">
-            <el-menu-item index="5" class="hidden-md-and-down"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></el-menu-item>
-          </el-tooltip>
-        </el-menu>
+  <div>
+    <el-row class="header">
+        <el-col :md="{span:9, offset:1}" class="hidden-sm-and-down menuContainer">
+          <div class="contestHeading" v-if="view==='contest'">
+            Skizzle Contest
+          </div>
+          <div class="contestHeading" v-else-if="view==='contestHome'">
+            <a class="logoutBtn" href="#" @click="signout">
+              <img class="logoutIcon" src="../assets/logout.svg" height="40" />
+            </a>
+          </div>
+          <el-menu class="el-menu-demo" mode="horizontal" v-else>
+            <el-menu-item index="1"><a href="/about" class="menuLink">About</a></el-menu-item>
+            <el-menu-item index="2"><a href="/faq" class="menuLink">FAQs</a></el-menu-item>
+            <el-menu-item index="3"><a href="https://blog.skizzle.email" target="_blank" class="menuLink">Blog</a></el-menu-item>
+            <el-tooltip class="item" effect="dark" content="Explore live transactions on Skizzle's public blockchain explorer ↗" placement="bottom">
+              <el-menu-item index="5" class="hidden-md-and-down"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></el-menu-item>
+            </el-tooltip>
+          </el-menu>
+        </el-col>
+        <el-col :xs="{span:2, offset:1}" :sm="{span:2, offset:1}" class="hidden-md-and-up menuBtnContainer">
+          <i class="el-icon-menu" @click="menuDialogVisible = true"></i>
+        </el-col>
+        <el-col :xs="{span:6, offset:6}" :sm="{span:6, offset:6}" :md="{span:4, offset:0}" class="logoContainer">
+          <router-link to="/">
+            <img src="../assets/skizzleLogoVertical.svg" height="60" class="logoImage" alt="Skizzle" />
+          </router-link>
+        </el-col>
+        <el-col :xs="{span:8}" :sm="{span:8}" :md="{span:9}" class="downloadBtnContainer">
+          <el-button icon="el-icon-download" class="hidden-sm-and-down" @click="navigate('https://chrome.google.com/webstore/detail/skizzle/mjkcepplkockpofgjhbnbjajfljleegm')">Get Skizzle</el-button>
+          <el-button icon="el-icon-download" class="hidden-md-and-up" @click="navigate('https://chrome.google.com/webstore/detail/skizzle/mjkcepplkockpofgjhbnbjajfljleegm')">Get</el-button>
+        </el-col>
+    </el-row>
+    <el-row class="contestContainer" v-if="view!=='contest' && view!=='contestHome'">
+      <el-col class="contestText">
+        Head over to our <a class="contestLink" href="/contest" target="_blank">Contest</a> page and see how you can win $500 in USDT
       </el-col>
-      <el-col :xs="{span:2, offset:1}" :sm="{span:2, offset:1}" class="hidden-md-and-up menuBtnContainer">
-        <i class="el-icon-menu"></i>
-      </el-col>
-      <el-col :xs="{span:6, offset:6}" :sm="{span:6, offset:6}" :md="{span:4, offset:0}" class="logoContainer">
-        <router-link to="/">
-          <img src="../assets/skizzleLogoVertical.svg" height="60" class="logoImage" alt="Skizzle" />
-        </router-link>
-      </el-col>
-      <el-col :xs="{span:8}" :sm="{span:8}" :md="{span:9}" class="downloadBtnContainer">
-        <el-button icon="el-icon-download" class="hidden-sm-and-down">Get Skizzle</el-button>
-        <el-button icon="el-icon-download" class="hidden-md-and-up">Get</el-button>
-      </el-col>
-  </el-row>
+    </el-row>
+    <el-dialog
+      title="Menu"
+      :visible.sync="menuDialogVisible"
+      width="90%"
+      center>
+      <ul class="responsiveMenuItems">
+        <li class="responsiveMenuItem"><a href="/" class="menuLink">Home</a></li>
+        <li class="responsiveMenuItem"><a href="/about" class="menuLink">About</a></li>
+        <li class="responsiveMenuItem"><a href="/faq" class="menuLink">FAQs</a></li>
+        <li class="responsiveMenuItem"><a href="https://blog.skizzle.email" target="_blank" class="menuLink">Blog</a></li>
+        <li class="responsiveMenuItem"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></li>
+        <li class="responsiveMenuItem"><a href="/contest" class="menuLink">Contest</a></li>
+      </ul>
+    </el-dialog>
+  </div>
 </template>
 
 <script>
@@ -42,10 +62,15 @@ export default {
   props: ["view"],
   data() {
     return {
-      email: ""
+      email: "",
+      menuDialogVisible: false,
     };
   },
   methods: {
+    navigate(url) {
+      window.open(url, "_blank");
+    },
+
     async signout() {
       const key = `skizzleContest|${this.email}`;
       const res = await fetch("https://contest-server.skizzle.email/auth/logout/", {
@@ -92,6 +117,17 @@ export default {
 
 .logoImage {
   padding-top: 12px;
+}
+
+.contestContainer {
+  position: fixed;
+  top: 80px;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  z-index: 10;
 }
 
 .contestHeading {
@@ -150,6 +186,20 @@ export default {
 
 .el-icon-menu {
   font-size: 30px;
+}
+
+.responsiveMenuItems {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.responsiveMenuItem {
+  padding: 10px;
+  font-family: "GilroyB";
+  color: black !important;
+  font-size: 16px !important;
+  text-transform: uppercase;
 }
 
 @media (min-width: 992px) {

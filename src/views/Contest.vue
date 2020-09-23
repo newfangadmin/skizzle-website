@@ -62,7 +62,7 @@
         </el-col>
       </el-row>
       <el-row class="prizeContainer">
-        <el-col :span="22" :offset="1" class="signupHeading">$400 worth USDT prize pool</el-col>
+        <el-col :span="22" :offset="1" class="signupHeading">$500 worth USDT prize pool</el-col>
         <el-col :span="22" :offset="1" class="prizesContainer">
           <el-row>
             <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
@@ -74,7 +74,7 @@
             <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
               <div class="prize">
                 <div class="prizeAmount">50<br/><span class="currency">USDT</span></div>
-                <div class="prizeText"><span class="keystores">2 keystore files</span><br/>unlock wallets with 50 USDT each</div>
+                <div class="prizeText"><span class="keystores">4 keystore files</span><br/>unlock wallets with 50 USDT each</div>
               </div>
             </el-col>
             <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
@@ -296,7 +296,7 @@ export default {
   },
   data() {
     return {
-      time: (new Date('September 12, 2020 23:59:59 GMT') - new Date()),
+      time: (new Date('September 23, 2020 23:59:59 GMT') - new Date()),
       isSignIn: false,
     };
   },

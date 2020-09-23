@@ -11,7 +11,7 @@
           Skizzle is, currently, a <span class="altColor">chrome extension</span> that allows you to send/receive end-to-end encrypted attachments right in your Gmail.
         </el-row>
         <el-row class="chromeWebstoreBtnContainer">
-          <a href="/contest" target="_blank">
+          <a href="https://chrome.google.com/webstore/detail/skizzle/mjkcepplkockpofgjhbnbjajfljleegm" target="_blank">
             <img class="chromeWebstoreBtn" src="../assets/ChromeWebStore_Badge_v2_340x96.png">
           </a>
         </el-row>
@@ -109,7 +109,7 @@
         </el-carousel>
       </el-col>
       <el-col :span="20" :offset="2" class="whitepaperContainer">
-        Read our <a href="https://en.wikipedia.org/wiki/Privacy_by_design" target="_blank">technical whitepaper</a>
+        Read our <a href="Skizzle-Whitepaper.pdf" target="_blank">technical whitepaper</a>
       </el-col>
     </el-row>
 
@@ -209,10 +209,10 @@
       <el-col :span="24" class="featuresContainer">
         <el-row>
           <el-col :span="16" :offset="4" class="signupContainer">
-            <div class="signupError">Invalid email id. Please try again.</div>
-            <div class="signupSuccess">Signup successful!</div>
+            <div class="signupError" v-if="signupError">Invalid email id. Please try again.</div>
+            <div class="signupSuccess" v-if="signupSuccess">Signup successful!</div>
             <el-input placeholder="Enter email address" v-model="email" clearable class="signupEmail"></el-input>
-            <el-button class="signupBtn" icon="el-icon-user">Sign up</el-button>
+            <el-button class="signupBtn" icon="el-icon-user" @click="signUp">Sign up</el-button>
           </el-col>
         </el-row>
       </el-col>
@@ -234,9 +234,52 @@ export default {
   },
   data() {
     return {
-      email: ""
+      email: "",
+      signupError: false,
+      signupSuccess: false
     };
   },
+  methods: {
+    validateEmail(){
+      var reg = /^(?:[\w!#$%&'*+\-/=?^`{|}~]+\.)*[\w!#$%&'*+\-/=?^`{|}~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
+
+      if (reg.test(this.email) == false) {
+        return false;
+      }
+
+      return true;
+    },
+
+    async signUp() {
+      await this.$recaptchaLoaded();
+  
+      const token = await this.$recaptcha('signup');
+      if (this.validateEmail()) {
+        const res = await fetch("https://api.skizzle.email/api/newsletter/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email: this.email,
+            token
+          })
+        });
+        if (res.status < 400) {
+          this.signupSuccess = true;
+          this.email = "";
+          setTimeout(() => {
+            this.signupSuccess = false;
+          }, 3000);
+        }
+      } else {
+        this.signupError = true;
+        setTimeout(() => {
+          this.signupError = false;
+        }, 3000)
+      }
+    }
+  }
 }
 </script>
 
@@ -401,13 +444,11 @@ export default {
 }
 
 .signupError {
-  display: none;
   color: red;
   margin-bottom: 20px;
 }
 
 .signupSuccess {
-  display: none;
   color: green;
   margin-bottom: 20px;
 }

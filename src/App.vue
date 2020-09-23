@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Fira+Code:300,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code:300,400,500&display=swap');
 @font-face { font-family: "GilroyB"; src: url('./assets/GilroyBold.ttf'); }
 @font-face { font-family: "GilroyEB"; src: url('./assets/GilroyExtraBold.otf'); }
 
@@ -30,6 +30,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: black;
   font-size: 16px;
+  font-weight: 300;
 }
 
 .altColor {
@@ -114,6 +115,17 @@ h3 {
 
 .el-input__inner:focus {
   border-color: black !important;
+}
+
+.el-collapse-item__header {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.el-collapse-item__content {
+  font-size: 16px !important;
 }
 
 @media (min-width: 768) {
