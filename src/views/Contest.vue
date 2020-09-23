@@ -296,7 +296,7 @@ export default {
   },
   data() {
     return {
-      time: (new Date('September 23, 2020 23:59:59 GMT') - new Date()),
+      time: (new Date('September 27, 2020 23:59:59 GMT') - new Date()),
       isSignIn: false,
     };
   },
