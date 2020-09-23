@@ -12,7 +12,12 @@ Vue.use(VueScrollTo, {
 });
 
 Vue.use(VueReCaptcha, {
-  siteKey: '6LfK6M4ZAAAAAIZGXdfGw2Aq6osJeVMLMecdj2zq'
+  siteKey: '6LfK6M4ZAAAAAIZGXdfGw2Aq6osJeVMLMecdj2zq',
+  loaderOptions: {
+    explicitRenderParameters: {
+      badge: "bottomleft"
+    }
+  }
 });
 
 Vue.component(VueCountdown.name, VueCountdown);
