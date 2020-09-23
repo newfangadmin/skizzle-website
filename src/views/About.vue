@@ -8,7 +8,7 @@
           By creating a suite of deadly easy to use services, apps and SDKs, we want to ensure that every individual, business and institution can safeguard their online data exchange.
         </el-col>
         <el-col class="heroImageContainer">
-          <img class="heroImage" src="../assets/team.png">
+          <img class="heroImage" src="../assets/team.jpg">
         </el-col>
       </el-row>
       <el-row class="section">

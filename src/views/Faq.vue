@@ -53,9 +53,6 @@
           <el-collapse-item title="12. What platforms are currently supported?" name="12">
             <div>We currently support Gmail and Chrome browser. Get in touch with us if you have specific requirements for features or platforms.</div>
           </el-collapse-item>
-          <el-collapse-item title="13. What platforms are currently supported?" name="13">
-            <div>We currently support Gmail and Chrome browser. Get in touch with us if you have specific requirements for features or platforms.</div>
-          </el-collapse-item>
         </el-collapse>
       </el-col>
     </el-row>
