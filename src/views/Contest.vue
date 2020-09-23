@@ -46,23 +46,8 @@
           By signing up you accept the contest's <a href="/contestTerms" target="_blank">Terms & Conditions</a>
         </el-col>
       </el-row>
-      <el-row class="howContainer">
-        <el-col :span="22" :offset="1" class="signupHeading">How it works</el-col>
-        <el-col :xs="{span:24}" :md="{span:20, offset:2}" :lg="{span:16, offset:4}" class="howListContainer">
-          <ul class="howList">
-            <!-- <li class="howItem">Follow us on twitter <a href="https://twitter.com/skizzledotemail" target="_blank">@skizzledotemail</a>.</li>
-            <li class="howItem">Like/Retweet our pinned post <a href="https://twitter.com/skizzledotemail" target="_blank">here</a>.</li> -->
-            <li class="howItem">Signup above with your Gmail account.</li>
-            <li class="howItem">You will then receive an email from hello@skizzle.email with an encrypted attachment.</li>
-            <li class="howItem">Install the Skizzle chrome extension and use it to decrypt the attachment.</li>
-            <li class="howItem">The attachment is actually a keystore file to a random wallet.</li>
-            <li class="howItem">Use the keystore file to access the wallet and check if you it has any USDT(erc20).</li>
-            <li class="howItem">If you find any USDT(erc20), VOILA!, you have won. Immediately transfer the tokens to any of your other wallets.</li>
-          </ul>
-        </el-col>
-      </el-row>
       <el-row class="prizeContainer">
-        <el-col :span="22" :offset="1" class="signupHeading">$500 worth USDT prize pool</el-col>
+        <el-col :span="22" :offset="1" class="signupHeading">$600 worth USDT prize pool for 25 lucky winners</el-col>
         <el-col :span="22" :offset="1" class="prizesContainer">
           <el-row>
             <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
@@ -79,17 +64,32 @@
             </el-col>
             <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
               <div class="prize">
-                <div class="prizeAmount">10<br/><span class="currency">USDT</span></div>
-                <div class="prizeText"><span class="keystores">10 keystore files</span><br/>unlock wallets with 10 USDT each</div>
+                <div class="prizeAmount">20<br/><span class="currency">USDT</span></div>
+                <div class="prizeText"><span class="keystores">10 keystore files</span><br/>unlock wallets with 20 USDT each</div>
               </div>
             </el-col>
             <el-col :xs="{span:20, offset:2}" :sm="{span:12, offset:6}" :md="{span:12, offset:0}" :lg="{span:6, offset:0}">
               <div class="prize">
-                <div class="prizeAmount">5<br/><span class="currency">USDT</span></div>
-                <div class="prizeText"><span class="keystores">20 keystore files</span><br/>unlock wallets with 5 USDT each</div>
+                <div class="prizeAmount">10<br/><span class="currency">USDT</span></div>
+                <div class="prizeText"><span class="keystores">10 keystore files</span><br/>unlock wallets with 10 USDT each</div>
               </div>
             </el-col>
           </el-row>
+        </el-col>
+      </el-row>
+      <el-row class="howContainer">
+        <el-col :span="22" :offset="1" class="signupHeading">How it works</el-col>
+        <el-col :xs="{span:24}" :md="{span:20, offset:2}" :lg="{span:16, offset:4}" class="howListContainer">
+          <ul class="howList">
+            <!-- <li class="howItem">Follow us on twitter <a href="https://twitter.com/skizzledotemail" target="_blank">@skizzledotemail</a>.</li>
+            <li class="howItem">Like/Retweet our pinned post <a href="https://twitter.com/skizzledotemail" target="_blank">here</a>.</li> -->
+            <li class="howItem">Signup above with your Gmail account.</li>
+            <li class="howItem">You will then receive an email from hello@skizzle.email with an encrypted attachment.</li>
+            <li class="howItem">Install the Skizzle chrome extension and use it to decrypt the attachment.</li>
+            <li class="howItem">The attachment is actually a keystore file to a random wallet.</li>
+            <li class="howItem">Use the keystore file to access the wallet and check if you it has any USDT(erc20).</li>
+            <li class="howItem">If you find any USDT(erc20), VOILA!, you have won. Immediately transfer the tokens to any of your other wallets.</li>
+          </ul>
         </el-col>
       </el-row>
     </div>
@@ -303,19 +303,6 @@ export default {
 
   methods: {
     async signin() {
-      // const googleUser = await this.$gAuth.signIn();
-      // const authCode = await this.$gAuth.getAuthCode()
-      // const id = googleUser.getId();
-      // const profile = googleUser.getBasicProfile();
-      // const res = googleUser.getAuthResponse();
-      // console.log('authCode:', authCode);
-      // console.log('id:', id);
-      // console.log('profile:', profile);
-      // console.log('authRes:', res);
-      // this.isSignIn = this.$gAuth.isAuthorized
-      // if (this.isSignIn) {
-      //   this.$router.push({ path: "/contestHome" });
-      // }
       const res = await fetch("https://contest-server.skizzle.email/auth/", {
         method: "GET",
         headers: {
