@@ -44,13 +44,17 @@
           <el-collapse-item title="9. Does the receiver need to be an existing skizzle user?" name="9">
             <div>The receiver doesn’t have to be an existing Skizzle user. You just need their email to share an encrypted file with them. However, they will need to install Skizzle before they can access the file(s) you share. They will be automatically placed in our free plan and won’t need to pay anything to access files.</div>
           </el-collapse-item>
-          <el-collapse-item title="10. Can I remove access to files after sharing them?" name="10">
+          <el-collapse-item title="10. Does the receiver need to be a Gmail user?" name="10">
+            <div>Yes. Skizzle, currently, only works on Gmail so the sender and recipient have to be Gmail, Gsuite or Gmail for Business users.</div>
+            <div>We will be adding integrations to other email services in the future.</div>
+          </el-collapse-item>
+          <el-collapse-item title="11. Can I remove access to files after sharing them?" name="11">
             <div>Yes. You can navigate to the shared files tab in skizzle extension, select the file, and view the list of users you have shared the file with. Here, you can revoke access to a particular user, who will then no longer be able to download your file.</div>
           </el-collapse-item>
-          <el-collapse-item title="11. Is there a help guide to walk me through how to use Skizzle?" name="11">
+          <el-collapse-item title="12. Is there a help guide to walk me through how to use Skizzle?" name="12">
             <div>You'll find a series of short explainer videos on our <a href="https://www.youtube.com/channel/UC6DOMpY2Z0yXUITWmCn9lxA" target="_blank">Youtube channel.</a></div>
           </el-collapse-item>
-          <el-collapse-item title="12. What platforms are currently supported?" name="12">
+          <el-collapse-item title="13. What platforms are currently supported?" name="13">
             <div>We currently support Gmail and Chrome browser. Get in touch with us if you have specific requirements for features or platforms.</div>
           </el-collapse-item>
         </el-collapse>
