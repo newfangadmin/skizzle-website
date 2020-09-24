@@ -255,7 +255,7 @@ export default {
       twitterDialogVisible: false,
       tweetText: "I'm going for gold with the @skizzledotemail contest! Check it out https://skizzle.email/contest It is the most secure way to share files.",
       tweetLink: "",
-      url: "https://skizzle-website.netlify.app/img/ChromeWebStore_Badge_v2_340x96.991809bf.png"
+      url: "https://skizzle.email/Skizzle-Intro.pdf"
     };
   },
   methods: {
@@ -309,7 +309,7 @@ export default {
           var url = window.URL.createObjectURL(blob);
           var a = document.createElement('a');
           a.href = url;
-          a.download = "some.png";
+          a.download = "Skizzle-Intro.pdf";
           document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
           a.click();    
           a.remove();  //afterwards we remove the element again
