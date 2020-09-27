@@ -29,7 +29,7 @@
           </template>
         </countdown>
       </el-row>
-      <el-row class="signupContainer">
+      <!-- <el-row class="signupContainer">
         <el-col :span="22" :offset="1" class="signupHeading">Register to the contest with your Gmail</el-col>
         <el-col :xs="{span:14, offset:5}" :sm="{span:8, offset:8}" :md="{span:6, offset:9}" :lg="{span:4, offset:10}" class="signup">
           <div class="google-btn" @click="signin">
@@ -45,6 +45,10 @@
         <el-col :span="24" class="terms">
           By signing up you accept the contest's <a href="https://blog.skizzle.email/skizzle-launch-crypto-giveaway-terms-conditions/" target="_blank">Terms & Conditions</a>
         </el-col>
+      </el-row> -->
+      <el-row class="signupContainer">
+        <el-col :span="22" :offset="1" class="signupHeading">Contest Closed!</el-col>
+        <el-col :span="22" :offset="1" class="signupHeading">Join our <a href="https://t.me/newfang" target="_blank">telegram channel</a> to be informed of the next one.</el-col>
       </el-row>
       <el-row class="prizeContainer">
         <el-col :span="22" :offset="1" class="signupHeading">$600 worth USDT prize pool for 25 lucky winners</el-col>
@@ -296,7 +300,7 @@ export default {
   },
   data() {
     return {
-      time: (new Date('September 27, 2020 23:59:59 GMT') - new Date()),
+      time: (new Date('September 26, 2020 23:59:59 GMT') - new Date()),
       isSignIn: false,
     };
   },
