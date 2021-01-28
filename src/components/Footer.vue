@@ -29,6 +29,7 @@
       hello@skizzle.email
     </el-col>
     <el-col :span="24" class="privacyContainer">
+      <a class="privacyLink" href="/terms" target="_blank">Terms of Service</a>
       <a class="privacyLink" href="/privacy" target="_blank">Privacy Policy</a>
     </el-col>
     <el-col :span="24" class="copyrightContainer">
@@ -113,6 +114,7 @@ export default {
 .privacyLink {
   color: #aaaaaa;
   font-size: 12px;
+  margin: 0px 12px;
 }
 
 @media (min-width: 992px) {

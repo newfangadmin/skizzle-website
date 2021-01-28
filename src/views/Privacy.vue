@@ -4,7 +4,7 @@
     <el-row class="privacy">
       <el-col :span="20" :offset="2" class="privacyContainer">
         <div class="heading">Privacy Policy</div>
-        <div class="subHeading">This privacy policy describes our approach to collection, handling and sharing of information when you interact with our website <a href="/index.html">https://skizzle.email</a>, also referred to as "site" and also our browser extension software and complementary services, also referred to as our "services".</div>
+        <div class="subHeading">This privacy policy describes our approach to collection, handling and sharing of information when you interact with our website <a href="/index.html">https://skizzlehq.com</a>, also referred to as "site" and also our browser extension software and complementary services, also referred to as our "services".</div>
 
         <div class="privacyTopic">Collection of information</div>
         <div class="privacyText">We only collect personal information that you voluntarily provide us while registering on our sites and with our services. This is mostly information you have made publicly available such as Name, Email and a Display Image. We also collect a password and have some system generated cryptographic material associated with your account.<br/>
@@ -52,7 +52,7 @@
 
         <div class="privacyTopic">Contact Information</div>
         <div class="privacyText">
-          If you wish to ask us any further questions or would like to review/remove your accounts and data, please write into us at hello@skizzle.email.
+          If you wish to ask us any further questions or would like to review/remove your accounts and data, please write into us at <a href='mailto: hello@skizzlehq.com'>hello@skizzlehq.com</a>.
         </div>
       </el-col>
     </el-row>
