@@ -9,7 +9,7 @@
       <ul class="footerMenu">
         <li class="footerMenuItem"><a href="/about">ABOUT</a></li>
         <li class="footerMenuItem"><a href="https://explorer.skizzle.email" target="_blank">EXPLORER</a></li>
-        <li class="footerMenuItem"><a href="https://blog.skizzle.email" target="_blank">BLOG</a></li>
+        <li class="footerMenuItem"><a href="https://skizzlehq.com/blog" target="_blank">BLOG</a></li>
       </ul>
     </el-col>
     <el-col :span="24" class="footerSocialContainer">

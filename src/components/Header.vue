@@ -13,7 +13,7 @@
           <el-menu class="el-menu-demo" mode="horizontal" v-else>
             <el-menu-item index="1"><a href="/about" class="menuLink">About</a></el-menu-item>
             <el-menu-item index="2"><a href="/faq" class="menuLink">FAQs</a></el-menu-item>
-            <el-menu-item index="3"><a href="https://blog.skizzle.email" target="_blank" class="menuLink">Blog</a></el-menu-item>
+            <el-menu-item index="3"><a href="https://skizzlehq.com/blog" target="_blank" class="menuLink">Blog</a></el-menu-item>
             <el-tooltip class="item" effect="dark" content="Explore live transactions on Skizzle's public blockchain explorer ↗" placement="bottom">
               <el-menu-item index="5" class="hidden-md-and-down"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></el-menu-item>
             </el-tooltip>
@@ -46,7 +46,7 @@
         <li class="responsiveMenuItem"><a href="/" class="menuLink">Home</a></li>
         <li class="responsiveMenuItem"><a href="/about" class="menuLink">About</a></li>
         <li class="responsiveMenuItem"><a href="/faq" class="menuLink">FAQs</a></li>
-        <li class="responsiveMenuItem"><a href="https://blog.skizzle.email" target="_blank" class="menuLink">Blog</a></li>
+        <li class="responsiveMenuItem"><a href="https://skizzlehq.com/blog" target="_blank" class="menuLink">Blog</a></li>
         <li class="responsiveMenuItem"><a href="https://explorer.skizzle.email" target="_blank">Explorer</a></li>
         <li class="responsiveMenuItem"><a href="/contest" class="menuLink">Contest</a></li>
       </ul>
