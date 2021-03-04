@@ -15,6 +15,14 @@
             <img class="chromeWebstoreBtn" src="../assets/ChromeWebStore_Badge_v2_340x96.png">
           </a>
         </el-row>
+        <el-row class="productHunt">
+          <el-col class="phFeatured" :xs="{span:24}" :sm="{span:12}">
+            <a href="https://www.producthunt.com/posts/skizzle?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-skizzle" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=286855&theme=light" alt="Skizzle - End-to-end encrypted attachments in Gmail | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+          </el-col>
+          <el-col class="phReview" :xs="{span:24}" :sm="{span:12}">
+            <a href="https://www.producthunt.com/posts/skizzle?utm_source=badge-review&utm_medium=badge&utm_souce=badge-skizzle#discussion-body" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/review.svg?post_id=286855&theme=light" alt="Skizzle - End-to-end encrypted attachments in Gmail | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+          </el-col>
+        </el-row>
       </el-col>
     </el-row>
     <el-row class="section democratize" id="mission">
@@ -314,6 +322,16 @@ export default {
   text-align: center;
 }
 
+.productHunt {
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.phFeatured, .phReview {
+  text-align: center;
+}
+
 .chromeWebstoreBtn {
   border: 1px solid #dddddd;
   border-radius: 6px;
@@ -480,7 +498,12 @@ export default {
 
   .chromeWebstoreBtnContainer {
     margin-top: 4%;
-    margin-bottom: 14%;
+  }
+
+  .productHunt {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
   }
 
   .section {
@@ -513,6 +536,12 @@ export default {
 
   .chromeWebstoreBtnContainer {
     margin-top: 16px;
+  }
+
+  .productHunt {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 4%;
   }
 
   .sectionHeader {
