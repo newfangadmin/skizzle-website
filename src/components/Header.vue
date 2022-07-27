@@ -3,7 +3,7 @@
     <el-row class="header">
         <el-col class="banner">
           <p class="banner-text">
-            The Skizzle service will be terminated on 7th August 2022. Checkout <a href="https://arcana.network" target="_blank">Arcana Network</a> for our next adventure.
+            The Skizzle service will be terminated on 7th August 2022. Check out <a href="https://arcana.network" target="_blank">Arcana Network</a> for our next adventure.
           </p>
         </el-col>
         <el-col :md="{span:9, offset:1}" class="hidden-sm-and-down menuContainer">
