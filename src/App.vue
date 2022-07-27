@@ -24,6 +24,11 @@ export default {
 @font-face { font-family: "GilroyB"; src: url('./assets/GilroyBold.ttf'); }
 @font-face { font-family: "GilroyEB"; src: url('./assets/GilroyExtraBold.otf'); }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: 'Fira Code', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

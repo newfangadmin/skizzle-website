@@ -1,6 +1,11 @@
 <template>
   <div>
     <el-row class="header">
+        <el-col class="banner">
+          <p class="banner-text">
+            The Skizzle service will be terminated on 7th August 2022. Check out <a href="https://arcana.network" target="_blank">Arcana Network</a> for our next adventure.
+          </p>
+        </el-col>
         <el-col :md="{span:9, offset:1}" class="hidden-sm-and-down menuContainer">
           <div class="contestHeading" v-if="view==='contest'">
             Skizzle Contest
@@ -97,13 +102,34 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header {
-  height: 80px;
   position: fixed;
   width: 100%;
   background: white;
   top: 0;
   z-index: 999;
   border-bottom: 1px dashed #dddddd;
+}
+
+.banner {
+  background: #ff5b00;
+  padding: 0.25rem 1rem;
+  color: white;
+  text-align: center;
+}
+
+.banner-text {
+  font-family: "GilroyEB";
+  line-height: 1.5;
+}
+.banner-text a {
+  color: white;
+  transition: opacity 0.4s ease-in;
+  opacity: 1;
+  text-underline-offset: 0.1em;
+}
+.banner-text a:hover, .banner-text a:focus {
+  opacity: 0.8;
+  transition: opacity 0.4s ease-in;
 }
 
 .logoutIcon {
